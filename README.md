@@ -24,7 +24,7 @@
 
 **作者 / Author · Zeejay0**
 
-[English](README.en.md) · [两种创作路径](#两种创作路径) · [开始使用](#开始使用) · [作品档案](#作品档案)
+[English](README.en.md) · [三种创作路径](#三种创作路径) · [开始使用](#开始使用) · [作品档案](#作品档案)
 
 </div>
 
@@ -35,6 +35,8 @@
 拾景纸刊是一组为 Codex 编写的生图 Skill。它不把照片当作等待套用的模板，而是先阅读场景：辨认主体、空间、色彩、动作与没有说完的情绪，再选择保留真实现场，或把现场蒸馏为一件新的纸上作品。
 
 照片提供事实，创作决定如何留下它。
+
+> **分支调整说明：** 本仓库是 [Zeejay0/gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill) 的个人非商业调整版，保留原作者、来源与许可证。`portrait-collage` 由本分支新增，针对人像拼贴提供自然融合、原脸光色协调和严格原像素三种处理方式，并非上游官方版本。详见 [MODIFICATIONS.md](MODIFICATIONS.md)。
 
 ---
 
@@ -56,17 +58,16 @@
 
 ![我们捡起世界的碎片，将稍纵即逝的瞬间装订成新的一页](assets/brand/gathered-scenes-manifesto.jpg)
 
-## 两种创作路径
+## 三种创作路径
 
-同一张照片，可以被保存，也可以被重新想象。本仓库收录两个互补的 Skill。
+同一张照片，可以保留现场、蒸馏表达，也可以在重构场景时重点保护人物身份。
 
-| | 实景拼贴 · Gathered Scenes | 影像蒸馏 · Scene Distillation |
-| --- | --- | --- |
-| **适合** | 想保留原照片与现场身份 | 想获得独立成立的原创插画作品 |
-| **照片的角色** | 成为最终海报中的真实视觉锚点 | 只作为语义与情绪来源，不进入成品 |
-| **转化方式** | 摄影、抽象插画、结构性色彩与手撕边界共同构图 | 从事实中提取命题、张力与视觉隐喻，重新创作 |
-| **结果** | 真实而克制的纸感拼贴海报 | 表达优先的极简编辑插画 |
-| **调用名称** | `$scenes-gathered-zine-v1-3` | `$scene-distillation-zine-v1-3` |
+| | 实景拼贴 | 影像蒸馏 | 人像融合调整版 |
+| --- | --- | --- | --- |
+| **适合** | 保留真实现场 | 创作独立插画 | 脸要像本人，人物仍要融入拼贴 |
+| **照片的角色** | 真实视觉锚点 | 语义与情绪来源 | 人物身份、五官与场景参考 |
+| **处理方式** | 摄影、抽象插画、结构性色彩与手撕边界 | 命题、张力与视觉隐喻 | 完整带人物构图 + 可选局部原脸协调或严格回贴 |
+| **调用名称** | `$scenes-gathered-zine-v1-3` | `$scene-distillation-zine-v1-3` | `$portrait-collage` |
 
 ### 01 · 实景拼贴
 
@@ -93,6 +94,17 @@
 ```
 
 [阅读完整 Skill](skills/scene-distillation-zine-v1-3/SKILL.md)
+
+### 03 · 人像融合调整版
+
+`portrait-collage` 先创作完整带人物的拼贴，再按需要选择三种脸部处理：`integrated` 自然生成、`source-face-harmonized` 保留原脸五官并协调低频光色、`source-face-exact` 严格保留核心像素。它不会默认生成无人背景后回贴整个人物。
+
+```text
+使用 $portrait-collage，采用 source-face-harmonized。
+保留原脸五官和身份细节，同时协调脸部光色与整体拼贴风格。
+```
+
+[阅读完整 Skill](skills/portrait-collage/SKILL.md)
 
 ## 从现场到纸面
 
@@ -151,21 +163,24 @@
 克隆仓库，然后把需要的 Skill 复制到 Codex Skills 目录：
 
 ```bash
-git clone https://github.com/Zeejay0/gathered-scenes-zine-skill.git
+git clone https://github.com/kiedeng/gathered-scenes-zine-skill.git
 mkdir -p ~/.codex/skills
 cp -R gathered-scenes-zine-skill/skills/scenes-gathered-zine-v1-3 ~/.codex/skills/
 cp -R gathered-scenes-zine-skill/skills/scene-distillation-zine-v1-3 ~/.codex/skills/
+cp -R gathered-scenes-zine-skill/skills/portrait-collage ~/.codex/skills/
 ```
+
+`portrait-collage` 的默认 `integrated` 模式可直接使用当前图像生成工具。若需 `source-face-harmonized` 或 `source-face-exact`，复制后按 [运行环境说明](skills/portrait-collage/references/setup.md) 安装锁定的 Node 与 Python 依赖。
 
 如果 Skill 没有立即出现，请重启 Codex。
 
 ### 使用
 
 1. 上传一张照片。
-2. 选择“实景拼贴”或“影像蒸馏”。
+2. 选择“实景拼贴”“影像蒸馏”或“人像融合调整版”。
 3. 调用对应的 Skill；也可以补充希望保留的关系、文字语言或情绪方向。
 
-除图片外，两个 Skill 都会返回简短的创作说明；具体输出规则请以各自的 `SKILL.md` 为准。
+除图片外，各 Skill 都会返回简短的创作说明；具体输出规则请以各自的 `SKILL.md` 为准。
 
 ## 仓库结构
 
@@ -181,9 +196,14 @@ gathered-scenes-zine-skill/
     ├── scenes-gathered-zine-v1-3/
     │   ├── SKILL.md
     │   └── agents/openai.yaml
-    └── scene-distillation-zine-v1-3/
+    ├── scene-distillation-zine-v1-3/
+    │   ├── SKILL.md
+    │   └── agents/openai.yaml
+    └── portrait-collage/
         ├── SKILL.md
-        └── agents/openai.yaml
+        ├── scripts/
+        ├── tests/
+        └── references/
 ```
 
 ## 关于照片

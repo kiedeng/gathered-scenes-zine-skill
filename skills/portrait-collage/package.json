@@ -1,0 +1,9 @@
+{
+  "name": "portrait-collage",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Integrated portrait collages with harmonized or pixel-exact source-face restoration",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test tests/invariants.test.cjs" },
+  "dependencies": { "sharp": "0.35.4", "pixelmatch": "7.1.0" }
+}

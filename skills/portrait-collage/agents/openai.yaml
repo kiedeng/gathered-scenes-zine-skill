@@ -1,0 +1,4 @@
+interface:
+  display_name: "实景拼贴·人物融合版"
+  short_description: "保留人物五官与身份，让原脸光色、服装和场景自然融入丰富纸感拼贴"
+  default_prompt: "使用 $portrait-collage，把这张照片做成自然融合的实景拼贴；保留原脸五官和身份细节，并协调脸部光色与整体风格。"

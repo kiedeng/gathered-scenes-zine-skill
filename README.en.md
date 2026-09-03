@@ -30,16 +30,18 @@ photograph → observe → extract relationships → choose a path → bind a ne
 
 The visual system follows five principles: truthful photography as an anchor, illustration as a field, color as structure, negative space as an active voice, and tactile paper boundaries as material language.
 
+> **Fork modification notice:** This repository is a personal, non-commercial modification of [Zeejay0/gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill). Original authorship, source notices, and the license remain intact. This fork adds `portrait-collage` for integrated portrait composition, harmonized source-face restoration, and pixel-exact source-face restoration. It is not an official upstream release. See [MODIFICATIONS.md](MODIFICATIONS.md).
+
 ![We collect fragments of the world and bind fleeting moments into a new page](assets/brand/gathered-scenes-manifesto.jpg)
 
-## Two creative paths
+## Three creative paths
 
-| | 实景拼贴 · Gathered Scenes | 影像蒸馏 · Scene Distillation |
-| --- | --- | --- |
-| **Best for** | Keeping the source photograph and its identity | Creating a fully independent illustrated artwork |
-| **Role of the photo** | A truthful visual anchor in the final poster | Semantic and emotional evidence only; no source pixels remain |
-| **Method** | Photography, source-derived abstraction, structural color, and torn paper | Proposition, tension, visual metaphor, paper, color, and authorial type |
-| **Skill** | `$scenes-gathered-zine-v1-3` | `$scene-distillation-zine-v1-3` |
+| | Gathered Scenes | Scene Distillation | Portrait Collage fork addition |
+| --- | --- | --- | --- |
+| **Best for** | Keeping the source scene | Creating an independent illustration | Preserving identity while integrating people into collage |
+| **Role of the photo** | A truthful visual anchor | Semantic and emotional evidence | Identity, facial detail, pose, and scene reference |
+| **Method** | Photography, abstraction, color, and torn paper | Proposition, metaphor, paper, color, and type | Complete people-first composition plus optional harmonized or exact local face restoration |
+| **Skill** | `$scenes-gathered-zine-v1-3` | `$scene-distillation-zine-v1-3` | `$portrait-collage` |
 
 ### 01 · 实景拼贴 / Gathered Scenes
 
@@ -62,6 +64,17 @@ Do not preserve the photograph itself; express “approaching and missing.”
 ```
 
 [Read the full skill](skills/scene-distillation-zine-v1-3/SKILL.md)
+
+### 03 · Portrait Collage fork addition
+
+`portrait-collage` first creates a complete collage with the intended people present. It then offers `integrated` generation, `source-face-harmonized` restoration that retains source facial detail while coordinating low-frequency light and color, or `source-face-exact` restoration with strict core-pixel checks. It does not default to an empty background followed by a whole-person photo paste.
+
+```text
+Use $portrait-collage in source-face-harmonized mode.
+Preserve source facial identity and features while coordinating face light and color with the collage.
+```
+
+[Read the full skill](skills/portrait-collage/SKILL.md)
 
 ## From scene to page
 
@@ -113,14 +126,17 @@ The seated posture and winter colors become loose paper fragments; open paper pr
 
 ## Get started
 
-Clone the repository and copy either or both skills into the Codex Skills directory:
+Clone the repository and copy one or more skills into the Codex Skills directory:
 
 ```bash
-git clone https://github.com/Zeejay0/gathered-scenes-zine-skill.git
+git clone https://github.com/kiedeng/gathered-scenes-zine-skill.git
 mkdir -p ~/.codex/skills
 cp -R gathered-scenes-zine-skill/skills/scenes-gathered-zine-v1-3 ~/.codex/skills/
 cp -R gathered-scenes-zine-skill/skills/scene-distillation-zine-v1-3 ~/.codex/skills/
+cp -R gathered-scenes-zine-skill/skills/portrait-collage ~/.codex/skills/
 ```
+
+The default `integrated` mode uses the current image-generation tool directly. For `source-face-harmonized` or `source-face-exact`, install the pinned Node and Python dependencies after copying the skill; see the [runtime setup guide](skills/portrait-collage/references/setup.md).
 
 Restart Codex if the skills do not appear immediately. Upload a photograph, choose whether to preserve or distill the scene, and invoke the corresponding skill by name.
 
